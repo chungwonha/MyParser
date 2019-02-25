@@ -8,6 +8,7 @@ public class DoorstepsFileReader extends FileReader {
 
     @Override
     public void init(ParsingClue clue) {
+        super.setFileFullPathAndName(clue.getFileFullPathAndName());
         super.setArea(clue.getArea());
         super.setHousingInfo(clue.getHousingInfo());
         super.setPrice(clue.getPrice());

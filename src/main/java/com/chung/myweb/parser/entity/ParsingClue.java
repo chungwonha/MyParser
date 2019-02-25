@@ -7,6 +7,7 @@ public class ParsingClue {
        private String price;
        private String title;
        private String mainContainingSection;
+       private String fileFullPathAndName;
 
     public String getArea() {
         return area;
@@ -46,5 +47,13 @@ public class ParsingClue {
 
     public void setMainContainingSection(String mainContainingSection) {
         this.mainContainingSection = mainContainingSection;
+    }
+
+    public String getFileFullPathAndName() {
+        return fileFullPathAndName;
+    }
+
+    public void setFileFullPathAndName(String fileFullPathAndName) {
+        this.fileFullPathAndName = fileFullPathAndName;
     }
 }
