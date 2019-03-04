@@ -2,6 +2,7 @@ package com.chung.myweb.parser.controller;
 
 import com.chung.myweb.parser.service.CraigslistParsingService;
 import com.chung.myweb.parser.service.DoorstepsParsingService;
+import com.chung.myweb.parser.service.RealtorcomParsingService;
 import com.chung.myweb.parser.util.ParserConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,9 @@ public class ParsingController {
     @Autowired
     DoorstepsParsingService doorstepsParsingService;
 
+    @Autowired
+    RealtorcomParsingService realtorcomParsingService;
+
     /*
         TODO: alot more room to improve to make this controller more dynamically and seamlessly work with various requests.
      */
@@ -31,6 +35,8 @@ public class ParsingController {
             this.craigslistParsingService.parse();
         }else if(ParserConstants.SITE_NAME_DOORSTEP.equals(siteName)){
             this.doorstepsParsingService.parse();
+        }else if(ParserConstants.SITE_NAME_REALTORCOM.equals(siteName)){
+            this.realtorcomParsingService.parse();
         }
         return "parse";
     }

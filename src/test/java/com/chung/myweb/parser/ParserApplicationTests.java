@@ -2,8 +2,9 @@ package com.chung.myweb.parser;
 
 import com.chung.myweb.parser.dao.ParserDao;
 import com.chung.myweb.parser.entity.ParsingClue;
-import com.chung.myweb.parser.reader.CraigslistFileReader;
-import com.chung.myweb.parser.reader.DoorstepsFileReader;
+import com.chung.myweb.parser.reader.CraigslistDefaultFileReader;
+import com.chung.myweb.parser.reader.DoorstepsDefaultFileReader;
+import com.chung.myweb.parser.reader.RealtorDotComFileReader;
 import com.chung.myweb.parser.util.ParserConstants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,10 +17,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ParserApplicationTests {
 
 	@Autowired
-	CraigslistFileReader craigslistFileReader;
+	CraigslistDefaultFileReader craigslistFileReader;
 
 	@Autowired
-	DoorstepsFileReader doorstepsFileReader;
+	DoorstepsDefaultFileReader doorstepsFileReader;
+
+	@Autowired
+	RealtorDotComFileReader realtorDotComFileReader;
 
 	@Autowired
 	ParserDao parserDao;
@@ -32,9 +36,7 @@ public class ParserApplicationTests {
 	public void testCraigslistFileReader(){
 
 		ParsingClue parsingClue = parserDao.getPasringClue(ParserConstants.SITE_NAME_CRIAGSLIST);
-
 		craigslistFileReader.init(parsingClue);
-		craigslistFileReader.setFileFullPathAndName("C:\\temp\\CraigsList-nvaFebruary_54_2019_14_18_42.html");
 		craigslistFileReader.read();
 	}
 
@@ -42,7 +44,13 @@ public class ParserApplicationTests {
 	public void testDoorstepsFileReader(){
 		ParsingClue parsingClue = parserDao.getPasringClue(ParserConstants.SITE_NAME_CRIAGSLIST);
 		doorstepsFileReader.init(parsingClue);
-		doorstepsFileReader.setFileFullPathAndName("C:\\temp\\Doorsteps-Herndon-VAFebruary_54_2019_14_19_03.html");
 		doorstepsFileReader.read();
+	}
+
+	@Test
+	public void testRealtorocmFileReader(){
+		ParsingClue parsingClue = parserDao.getPasringClue(ParserConstants.SITE_NAME_REALTORCOM);
+		realtorDotComFileReader.init(parsingClue);
+		realtorDotComFileReader.read();
 	}
 }

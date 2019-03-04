@@ -26,6 +26,8 @@ public class ParserDao {
             clue.setPrice("listing-item__text listing-item__text--bold");
             clue.setTitle("listing-item__title");
             clue.setMainContainingSection("listing-item__info-container");
+        }else if(ParserConstants.SITE_NAME_REALTORCOM.equals(siteToParse)){
+            clue.setFileFullPathAndName("C:\\temp\\Realtor.com-Herndon-VAFebruary_54_2019_14_18_55.html");
         }
         return clue;
     }

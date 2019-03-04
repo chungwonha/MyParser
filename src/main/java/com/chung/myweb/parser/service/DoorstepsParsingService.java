@@ -1,6 +1,6 @@
 package com.chung.myweb.parser.service;
 
-import com.chung.myweb.parser.reader.DoorstepsFileReader;
+import com.chung.myweb.parser.reader.DoorstepsDefaultFileReader;
 import com.chung.myweb.parser.util.ParserConstants;
 import com.chung.myweb.parser.dao.ParserDao;
 import com.chung.myweb.parser.entity.ParsingClue;
@@ -14,7 +14,7 @@ public class DoorstepsParsingService implements ParsingService {
     ParserDao parserDao;
 
     @Autowired
-    DoorstepsFileReader doorstepsFileReader;
+    DoorstepsDefaultFileReader doorstepsFileReader;
 
     @Override
     public void parse() {
